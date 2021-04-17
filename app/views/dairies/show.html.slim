@@ -1,0 +1,21 @@
+h1 日記内容
+
+.nav.justify-content-end 
+    = link_to '一覧', dairies_path, class: 'nav-link'
+table.table.table-hover 
+    tbody 
+        tr 
+            th = Dairy.human_attribute_name(:id)
+            td = @dairy.id
+        tr 
+            th = Dairy.human_attribute_name(:title)
+            td = @dairy.title
+        tr 
+            th = Dairy.human_attribute_name(:content)
+            td = simple_format(h(@dairy.content), {}, sanitize: false, wrapper_tag: "div")
+        tr 
+            th = Dairy.human_attribute_name(:created_at)
+            td = @dairy.created_at
+        tr 
+            th = Dairy.human_attribute_name(:updated_at)
+            td = @dairy.updated_at
