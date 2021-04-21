@@ -1,13 +1,2 @@
-h1 日記編集
-
-.nav.justify-content-end 
-    =link_to '一覧', dairies_path, class: 'nav-link'
-
-= form_with model: @dairy, local: true do |f|
-    .form-group
-        = f.label :title
-        = f.text_field :title, class: 'form-control', id: 'dairy_name'
-    .form-group 
-        = f.label :content
-        = f.text_area :content, rows: 5, class: 'form-control', id: 'dairy_content'
-    = f.submit nil, class: 'btn btn-primary'
+h1 Dairies#edit
+p Find me in app/views/dairies/edit.html.slim
