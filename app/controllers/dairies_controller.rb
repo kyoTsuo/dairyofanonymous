@@ -12,13 +12,6 @@ class DairiesController < ApplicationController
   end
 
   def edit
-    @dairy = Dairy.find(params[:id])
-  end
-
-  def update
-    dairy = Dairy.find(params[:id])
-    dairy.update!(dairy_params)
-    redirect_to dairies_url, notice: "日記#{dairy.title}を更新しました。"
   end
 
   def create
