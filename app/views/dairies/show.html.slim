@@ -1,7 +1,5 @@
 h1 日記内容
 
-h2 sample 
-
 .nav.justify-content-end 
     = link_to '一覧', dairies_path, class: 'nav-link'
 table.table.table-hover 
@@ -21,3 +19,6 @@ table.table.table-hover
         tr 
             th = Dairy.human_attribute_name(:updated_at)
             td = @dairy.updated_at
+
+= link_to '編集', edit_dairy_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @dairy, method: :delete, data: { confirm: "日記#{@dairy.title}を削除します。よろしいですか？" }, class: 'btn btn-danger'
