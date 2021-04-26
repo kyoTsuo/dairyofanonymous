@@ -1,2 +1,6 @@
-h1 Dairies#edit
-p Find me in app/views/dairies/edit.html.slim
+h1 日記の編集
+
+.nav.justify-content-end 
+    = link_to '一覧', dairies_path, class: 'nav-link'
+
+= render partial: 'form', locals: { dairy: @dairy }
