@@ -28,9 +28,13 @@ class DairiesController < ApplicationController
   end
 
   def create
-    dairy = Dairy.new(dairy_params)
-    dairy.save!
-    redirect_to dairies_url, notice: "日記#{dairy.title}を投稿しました。"
+    @dairy = Dairy.new(dairy_params)
+
+    if @dairy.save
+      redirect_to dairies_url, notice: "日記#{dairy.title}を投稿しました。"
+    else
+      render :new
+    end
   end
 
   private
