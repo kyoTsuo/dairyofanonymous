@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  def index
-    @users = User.all
-  end
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @user = User.find(params[:id])
   end
 
   def new
@@ -13,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -27,8 +23,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-
     if @user.update(user_params)
       redirect_to user_url(@user), notice: "ユーザーを更新しました。"
     else
@@ -37,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_url, notice: "ユーザーを削除しました。"
   end
@@ -46,5 +39,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
