@@ -3,7 +3,7 @@ class DairiesController < ApplicationController
     before_action :set_dairy, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dairies = current_user.dairies
+    @dairies = Dairy.all
   end
 
   def show
