@@ -1,12 +1,13 @@
 class DairiesController < ApplicationController
 
-    before_action :set_dairy, only: [:show, :edit, :update, :destroy]
+    before_action :set_dairy, only: [:edit, :update, :destroy]
 
   def index
     @dairies = Dairy.all
   end
 
   def show
+    @dairy = Dairy.find(params[:id])
   end
 
   def new
