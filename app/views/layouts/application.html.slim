@@ -14,6 +14,7 @@ html
       ul.navbar-nav.ml-auto 
         - if current_user 
           li.nav-item = link_to '日記一覧', dairies_path, class: 'nav-link'
+          li.nav-item = link_to 'マイページ', user_path(current_user), class: 'nav-link'
           li.nav-item = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
         - else 
           li.nav-item = link_to 'ログイン', login_path, class: 'nav-link'
