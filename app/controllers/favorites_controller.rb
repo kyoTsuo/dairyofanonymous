@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def create
-    @favorite = Favorite.create(user_id: current_user.id, dairy_id: params[:dairy_id])
+    @favorite = Favorite.new(user_id: current_user.id, dairy_id: params[:dairy_id])
     if @favorite.save
       redirect_to dairies_url, notice: "お気に入りを登録しました。"
     end
