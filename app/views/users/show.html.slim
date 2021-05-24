@@ -1,6 +1,5 @@
 h1 ユーザー詳細
 .nav.justfy-content-end 
-    = link_to '一覧', users_path, class: 'nav-link'
 table.table.table-hover 
     tbody 
         tr 
@@ -15,3 +14,13 @@ table.table.table-hover
 
 = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
 = link_to '削除', @user, method: :delete, data: { confirm: "ユーザーを削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+- if @favorite_list.present?
+    h2 お気に入り一覧
+    .nav.justfy-content-end 
+    table.table.table-hover 
+        tbody 
+            - @favorite_list.each do |dairy|
+                tr 
+                    th = dairy.title 
+                    td = link_to dairy.content, dairy_path(dairy)
