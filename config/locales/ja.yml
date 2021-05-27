@@ -9,6 +9,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       dairy: 日記
+      draft: 下書き
     attributes:
       dairy:
         id: ID
@@ -22,6 +23,13 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
+        created_at: 作成日時
+        updated_at: 更新日時
+      draft:
+        id: ID
+        title: 題名
+        content: 内容
+        published: 
         created_at: 作成日時
         updated_at: 更新日時
   date:
