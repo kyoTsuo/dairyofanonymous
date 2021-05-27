@@ -22,5 +22,5 @@ table.table.table-hover
         tbody 
             - @favorite_list.each do |dairy|
                 tr 
-                    th = dairy.title 
-                    td = link_to dairy.content, dairy_path(dairy)
+                    th = link_to dairy.title, dairy_path(dairy)
+                    td = dairy.content
