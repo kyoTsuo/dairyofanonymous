@@ -5,4 +5,5 @@ class User < ApplicationRecord
 
     has_many :dairies
     has_many :favorites
+    has_many :drafts
 end
