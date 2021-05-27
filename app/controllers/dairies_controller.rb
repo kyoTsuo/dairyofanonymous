@@ -31,6 +31,11 @@ class DairiesController < ApplicationController
   end
 
   def create
+    commit = params.require(:commit)
+    if commit == "下書き保存"
+      redirect_to user_drafts_path(current_user), action: :create
+    end
+
     @dairy = current_user.dairies.new(dairy_params)
 
     if @dairy.save
