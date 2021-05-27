@@ -1,0 +1,17 @@
+h1 下書き一覧
+
+.mb-3 
+table.table.table-hover 
+    thead.thead-default 
+        tr 
+            th = Dairy.human_attribute_name(:title)
+            th = Dairy.human_attribute_name(:created_at)
+            th 
+    tbody 
+        - @drafts.each do |draft|
+            tr 
+                td = link_to draft.title, edit_user_draft_path(current_user, draft)
+                td = draft.created_at 
+                td 
+                    = link_to '編集', edit_user_draft_path(current_user, draft), class: 'btn btn-primary mr-3'
+                    = link_to '削除', user_draft_path(current_user, draft), method: :delete, data: { confirm: "下書き#{draft.title}を削除します。よろしいですか？" }, class: 'btn btn-danger'
