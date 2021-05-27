@@ -1,5 +1,6 @@
 h1 日記一覧
-= link_to '新規登録', new_dairy_path, class: 'btn btn-primary'
+= link_to '新規登録', new_dairy_path, class: 'btn btn-primary mr-3'
+= link_to '下書き一覧', user_drafts_path(current_user), class: 'btn btn-secondary' 
 
 .mb-3 
 table.table.table-hover 
