@@ -1,0 +1,6 @@
+h1 下書きの編集
+
+.nav.justify-content-end 
+    = link_to '一覧', dairies_path, class: 'nav-link'
+
+= render partial: 'form', locals: { user: @user, draft: @draft }
