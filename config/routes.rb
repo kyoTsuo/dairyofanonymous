@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
-  root to: 'dairies#index'
   resources :users do
     get :favorites, on: :collection
+    resources :drafts, only:  [:index, :edit, :create, :update, :destroy]
   end
+  root to: 'dairies#index'
   resources :dairies do
     resource :favorites, only: [:create, :destroy]
   end
