@@ -40,10 +40,14 @@ class DairiesController < ApplicationController
     end
   end
 
+  def draft
+    @dairies = current_user.dairies
+  end
+
   private
   
   def dairy_params
-    params.require(:dairy).permit(:title, :content)
+    params.require(:dairy).permit(:title, :content, :published, :drafted)
   end
 
   def set_dairy
