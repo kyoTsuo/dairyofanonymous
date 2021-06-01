@@ -15,12 +15,27 @@ table.table.table-hover
 = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
 = link_to '削除', @user, method: :delete, data: { confirm: "ユーザーを削除します。よろしいですか？" }, class: 'btn btn-danger'
 
-- if @favorite_list.present?
+- if @current_user_dairy.present?
+    h2 自分の日記一覧
+    .nav.justfy-content-end 
+    table.table.table-hover 
+        tbody 
+            - @current_user_dairy.each do |dairy|
+                - unless dairy.drafted?
+                    tr 
+                        th = link_to dairy.title, dairy_path(dairy)
+                        td = dairy.content
+                        td 
+                            = link_to '編集', edit_dairy_path(dairy), class: 'btn btn-primary mr-3'
+                            = link_to '削除', dairy, method: :delete, data: { confirm: "日記#{dairy.title}を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+
+- if @favorite_dairy.present?
     h2 お気に入り一覧
     .nav.justfy-content-end 
     table.table.table-hover 
         tbody 
-            - @favorite_list.each do |dairy|
+            - @favorite_dairy.each do |dairy|
                 tr 
-                    th = dairy.title 
-                    td = link_to dairy.content, dairy_path(dairy)
+                    th = link_to dairy.title, dairy_path(dairy)
+                    td = dairy.content
