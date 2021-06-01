@@ -1,6 +1,6 @@
 h1 日記作成
 
 .nav.justify-content-end 
-    =link_to '一覧', dairies_path, class: 'nav-link'
+    =link_to '下書き一覧', dairies_draft_path, class: 'nav-link'
 
 = render partial: 'form', locals: { dairy: @dairy }
