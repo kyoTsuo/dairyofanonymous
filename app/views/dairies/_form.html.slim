@@ -10,4 +10,16 @@
     .form-group 
         = f.label :content
         = f.text_area :content, rows: 5, class: 'form-control', id: 'dairy_content'
+    .form-check 
+        = f.label :published, class: 'form-check-label' do 
+            = f.radio_button :published, true, class: 'form-check-input'
+            | 公開
+    .form-check 
+        = f.label :published, class: 'form-check-label' do 
+            = f.radio_button :published, false, checked: true, class: 'form-check-input'
+            | 非公開
+    .form-check 
+        = f.label :drafted, class: 'form-check-label' do 
+            = f.check_box :drafted, class: 'form-check-input'
+            | 下書き
     = f.submit nil, class: 'btn btn-primary'

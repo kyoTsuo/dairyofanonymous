@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   root to: 'dairies#index'
+  get '/dairies/draft', to: 'dairies#draft'
   resources :users do
     get :favorites, on: :collection
   end

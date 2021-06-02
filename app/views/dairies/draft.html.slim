@@ -1,0 +1,17 @@
+h1 下書き一覧
+
+.mb-3 
+table.table.table-hover 
+    thead.thead-default 
+        tr 
+            th = Dairy.human_attribute_name(:title)
+            th 
+            th = Dairy.human_attribute_name(:created_at)
+            th 
+    tbody 
+        - @dairies.each do |dairy|
+            tr 
+            - if dairy.drafted?
+                td = link_to dairy.title, edit_dairy_path(dairy)
+                td 
+                td = dairy.created_at 
