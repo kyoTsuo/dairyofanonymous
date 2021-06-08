@@ -3,7 +3,7 @@ class DairiesController < ApplicationController
     before_action :set_dairy, only: [:edit, :update, :destroy]
 
   def index
-    @dairies = Dairy.all
+    @dairies = Dairy.all.order(id: "DESC")
   end
 
   def show
@@ -41,7 +41,7 @@ class DairiesController < ApplicationController
   end
 
   def draft
-    @dairies = current_user.dairies
+    @dairies = current_user.dairies.order(id: "DESC")
   end
 
   private
