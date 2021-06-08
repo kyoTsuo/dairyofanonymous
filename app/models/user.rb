@@ -3,6 +3,6 @@ class User < ApplicationRecord
 
     validates :email, presence: true, uniqueness: true
 
-    has_many :dairies
-    has_many :favorites
+    has_many :dairies, dependent: :destroy
+    has_many :favorites, dependent: :destroy
 end
