@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: dairyofanonymous_production
-  username: dairyofanonymous
-  password: <%= ENV['DAIRYOFANONYMOUS_DATABASE_PASSWORD'] %>
