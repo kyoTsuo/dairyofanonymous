@@ -12,7 +12,10 @@ module Dairyofanonymous
     config.load_defaults 5.2
 
     config.generators do |g|
-      g.test_framework false
+      g.test_framework :rspec,
+        view_specs: false, # ビュースペックを作成するかどうか
+        helper_specs: false, # ヘルパーファイル用のスペックを作成するかどうか
+        routing_specs: false # config/routes.rb 用のスペックファイルを作成するかどうか　シンプルならば false で構わない
     end
     
     # Settings in config/environments/* take precedence over those specified here.
