@@ -5,13 +5,14 @@ html
       | Dairyofanonymous
     = csrf_meta_tags
     = csp_meta_tag
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light 
-      .navbar-brand Dairyofanonymous
+    .app-title.navbar.navbar-expand-sm.navbar-light.bg-light.fixed-top.zindex-fixed
+      .navbar-brand.mr-1.me-auto Dairyofanonymous
     
-      ul.navbar-nav.ml-auto 
+      ul.navbar-nav
         - if current_user 
           li.nav-item = link_to '日記一覧', dairies_path, class: 'nav-link'
           li.nav-item = link_to 'マイページ', user_path(current_user), class: 'nav-link'
