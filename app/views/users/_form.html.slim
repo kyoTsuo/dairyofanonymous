@@ -4,13 +4,13 @@
             li = message 
 
 = form_with model: user, local: true do |f|
-    .form-group 
+    .form-group.mb-3
         = f.label :email, 'メールアドレス'
         = f.text_field :email, class: 'form-control'
-    .form-group 
+    .form-group.mb-3 
         = f.label :password, 'パスワード'
         = f.password_field :password, class: 'form-control'
-    .form-group 
+    .form-group.mb-3 
         = f.label :password_confirmation, 'パスワード(確認)'
         = f.password_field :password_confirmation, class: 'form-control'
     = f.submit '登録する', class: 'btn btn-primary'
