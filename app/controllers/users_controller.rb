@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def dairies
-    @current_user_dairies = current_user.dairies
+    @current_user_dairies = current_user.dairies.order(id: "DESC")
   end
 
   def fav
