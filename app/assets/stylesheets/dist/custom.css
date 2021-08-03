@@ -7,6 +7,10 @@ input {
   box-sizing: border-box;
 }
 
+.btn-not-published {
+  background-color: lightblue;
+}
+
 #fh5co-wireframe {
   padding-top: 7em;
   padding-bottom: 0;
