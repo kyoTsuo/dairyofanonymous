@@ -1,6 +1,6 @@
-h1 日記作成
-
-.nav.justify-content-end 
-    =link_to '下書き一覧', dairies_draft_path, class: 'nav-link'
-
-= render partial: 'form', locals: { dairy: @dairy }
+#fh5co-portfolio 
+  .container 
+    h1 日記作成
+    .row 
+      .col-md-8.col-md-offset-2
+        = render partial: 'form', locals: { dairy: @dairy }
