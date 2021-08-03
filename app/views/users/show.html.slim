@@ -1,42 +1,14 @@
-.container.disp-p 
-  h1 ユーザー詳細
-  .nav.justfy-content-end 
-  table.table.table-hover 
-    tbody 
-      tr 
-        th = User.human_attribute_name(:email)
-        td = @user.email
-      tr 
-        th = User.human_attribute_name(:created_at)
-        td = @user.created_at
-      tr 
-        th = User.human_attribute_name(:updated_at)
-        td = @user.updated_at
+#fh5co-portfolio 
+  .container
+    .row.profile 
+      .col-md-9 
+        h3.title-profile プロフィール
+        .row 
+          .col-md-8 
+            h4.show-user-email 
+              = @user.email
+            .account-edit 
+              = link_to 'プロフィール編集', edit_user_path
+            .account-delete
+              = link_to 'アカウント削除', @user, method: :delete, data: { confirm: "ユーザーを削除します。よろしいですか？" }
 
-  = link_to '編集', edit_user_path, class: 'btn btn-primary mr-3'
-  = link_to '削除', @user, method: :delete, data: { confirm: "ユーザーを削除します。よろしいですか？" }, class: 'btn btn-danger'
-
-  - if @current_user_dairies.present?
-    h2 自分の日記一覧
-    .nav.justfy-content-end 
-    table.table.table-hover 
-        tbody 
-        - @current_user_dairies.each do |dairy|
-          - unless dairy.drafted?
-            tr 
-              th = link_to dairy.title, dairy_path(dairy)
-              td = dairy.content
-              td 
-                = link_to '編集', edit_dairy_path(dairy), class: 'btn btn-primary mr-3'
-                = link_to '削除', dairy, method: :delete, data: { confirm: "日記#{dairy.title}を削除します。よろしいですか？" }, class: 'btn btn-danger'
-
-
-  - if @favorite_dairies.present?
-    h2 お気に入り一覧
-    .nav.justfy-content-end 
-    table.table.table-hover 
-      tbody 
-      - @favorite_dairies.each do |dairy|
-        tr 
-          th = link_to dairy.title, dairy_path(dairy)
-          td = dairy.content
