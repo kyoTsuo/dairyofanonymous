@@ -20,7 +20,6 @@
       .form-check 
 
       ul.stuff
-        li.btn 下書き 
-        li.form-check.form-switch 
-          = f.check_box :published, class: 'form-check-input'
-        li = f.submit nil, class: 'btn btn-primary post-dairy'
+        li = f.submit "下書き", class: 'btn', publised: false, drafted: true 
+        li = f.submit "非公開投稿", class: 'btn btn-not-published ml-2', published: false, drafted: false 
+        li = f.submit "公開投稿", class: 'btn btn-primary', published: true, drafted: false 
