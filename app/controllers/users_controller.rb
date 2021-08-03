@@ -3,7 +3,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
+  end
+
+  def dairies
     @current_user_dairies = current_user.dairies
+  end
+
+  def fav
     favorite_dairy_id = Favorite.where(user_id: current_user.id).pluck(:dairy_id)
     @favorite_dairies = Dairy.find(favorite_dairy_id)
   end
