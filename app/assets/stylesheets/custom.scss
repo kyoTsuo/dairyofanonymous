@@ -11,6 +11,11 @@ input {
   @include box_sizing;
 }
 
+.btn-not-published {
+  background-color: lightblue;
+}
+
+
 #fh5co-wireframe {
   padding-top: 7em;
   padding-bottom: 0;
