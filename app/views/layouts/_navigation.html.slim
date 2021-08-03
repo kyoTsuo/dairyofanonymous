@@ -1,0 +1,31 @@
+.fh5co-nav.navbar-fixed-top role="navigation"
+  .top-menu 
+    .container 
+      .row 
+        .col-xs-2 
+          #fh5co-logo 
+            | Dairyofanonymous
+
+        .col-xs-10.text-right.menu-1
+          ul 
+            - if current_user
+              li.header-link 
+                = link_to new_dairy_path do 
+                  span.fas.fa-pencil-alt
+              li.header-link
+                = link_to home_path do 
+                  span.fas.fa-globe
+              li.header-link
+                = link_to user_dairies_path(current_user) do 
+                  span.fas.fa-book
+              li.header-link 
+                = link_to user_fav_path(current_user) do 
+                  span.fas.fa-heart
+              li.header-link
+                = link_to logout_path, method: :delete do 
+                  span.fas.fa-sign-out-alt
+            - else
+              li.header-link
+                = link_to 'ログイン', login_path
+              li.header-link
+                = link_to '新規登録', new_user_path

@@ -1,24 +1,24 @@
-h1 日記内容
-
-.nav.justify-content-end 
-    = link_to '一覧', dairies_path, class: 'nav-link'
-table.table.table-hover 
-    tbody 
-        tr 
-            th = Dairy.human_attribute_name(:id)
-            td = @dairy.id
-        tr 
-            th = Dairy.human_attribute_name(:title)
-            td = @dairy.title
-        tr 
-            th = Dairy.human_attribute_name(:content)
-            td = simple_format(h(@dairy.content), {}, sanitize: false, wrapper_tag: "div")
-        tr 
-            th = Dairy.human_attribute_name(:created_at)
-            td = @dairy.created_at
-        tr 
-            th = Dairy.human_attribute_name(:updated_at)
-            td = @dairy.updated_at
-
-= link_to '編集', edit_dairy_path, class: 'btn btn-primary mr-3'
-= link_to '削除', @dairy, method: :delete, data: { confirm: "日記#{@dairy.title}を削除します。よろしいですか？" }, class: 'btn btn-danger'
+#fh5co-blog 
+  .container
+    row.animate-box.fadeInUp.animated-fast
+      - if @dairy.published?
+      .col-md-8.col-md-offset-2 
+        .fh5co-blog.animate-box.fadeInUp.animated-fast 
+          .blog-text 
+            span.posted_on = @dairy.created_at 
+            h3 = @dairy.title 
+            p = @dairy.content 
+            ul.stuff
+              - if Favorite.exists?(user: current_user, dairy_id: @dairy.id)
+                li = link_to dairy_favorites_path(@dairy), method: :delete do 
+                  i.fas.fa-heart 
+              - else 
+                li = link_to dairy_favorites_path(@dairy), method: :post do 
+                  i.far.fa-heart 
+              - if @dairy.user_id == current_user.id then 
+                li = link_to edit_dairy_path(@dairy) do 
+                  i.fas.fa-pencil-alt
+                li = link_to @dairy, method: :delete do 
+                  i.fas.fa-trash-alt
+              li = link_to :back do 
+                i.fas.fa-chevron-left 

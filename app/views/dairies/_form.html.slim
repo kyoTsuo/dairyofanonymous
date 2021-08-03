@@ -1,25 +1,25 @@
 - if dairy.errors.present?
-    ul#error_explanation 
-        - dairy.errors.full_messages.each do |message|
-            li = message 
+  ul#error_explanation 
+    - dairy.errors.full_messages.each do |message|
+      li = message 
 
-= form_with model: dairy, local: true do |f|
-    .form-group
+.fh5co-portfolio 
+  = form_with model: dairy, local: true do |f|
+    .portfolio-text 
+
+      .form-group
         = f.label :title
+        span.input-unneed ※任意
         = f.text_field :title, class: 'form-control', id: 'dairy_title'
-    .form-group 
+      .form-group 
         = f.label :content
-        = f.text_area :content, rows: 5, class: 'form-control', id: 'dairy_content'
-    .form-check 
-        = f.label :published, class: 'form-check-label' do 
-            = f.radio_button :published, true, class: 'form-check-input'
-            | 公開
-    .form-check 
-        = f.label :published, class: 'form-check-label' do 
-            = f.radio_button :published, false, checked: true, class: 'form-check-input'
-            | 非公開
-    .form-check 
-        = f.label :drafted, class: 'form-check-label' do 
-            = f.check_box :drafted, class: 'form-check-input'
-            | 下書き
-    = f.submit nil, class: 'btn btn-primary'
+        span.input-need ※必須
+        = f.text_area :content, rows: 10, class: 'form-control', id: 'dairy_content'
+      .form-check 
+
+      .form-check 
+
+      ul.stuff
+        li = f.submit "下書き", class: 'btn', publised: false, drafted: true 
+        li = f.submit "非公開投稿", class: 'btn btn-not-published ml-2', published: false, drafted: false 
+        li = f.submit "公開投稿", class: 'btn btn-primary', published: true, drafted: false 

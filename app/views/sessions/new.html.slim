@@ -1,12 +1,14 @@
-.row.align-content-center.vh-100.px-5
-  .col.col-md-6.offset-md-6
+#fh5co-portfolio 
+  .container 
     h1 ログイン
-
-    = form_with scope: :session, local: true do |f|
-      .form-group.mb-3
-        = f.label :email, 'メールアドレス'
-        = f.text_field :email, class: 'form-control', id: 'session_email'
-      .form-group.mb-3
-        = f.label :password, 'パスワード'
-        = f.password_field :password, class: 'form-control', id: 'session_password'
-      = f.submit 'ログイン', class: 'btn btn-primary'
+    .row 
+      .col-md-6.col-md-offset-3 
+        = form_with scope: :session, local: true do |f|
+          .form-group.mb-3
+            = f.label :email, 'メールアドレス'
+            = f.text_field :email, class: 'form-control', id: 'session_email'
+          .form-group.mb-3
+            = f.label :password, 'パスワード'
+            = f.password_field :password, class: 'form-control', id: 'session_password'
+          p.mb-3
+          = f.submit 'ログイン', class: 'btn btn-primary'

@@ -1,0 +1,23 @@
+.row 
+  - @dairies.each do |dairy|
+    - if dairy.published?
+      .col-md-8.col-md-offset-2 
+        .fh5co-blog.animate-box.fadeInUp.animated-fast 
+          .blog-text 
+            span.posted_on = dairy.created_at 
+            h3 = dairy.title 
+            p = dairy.content 
+            ul.stuff
+              - if Favorite.exists?(user: current_user, dairy_id: dairy.id)
+                li = link_to dairy_favorites_path(dairy), method: :delete do 
+                  i.fas.fa-heart 
+              - else 
+                li = link_to dairy_favorites_path(dairy), method: :post do 
+                  i.far.fa-heart 
+              - if dairy.user_id == current_user.id then 
+                li = link_to edit_dairy_path(dairy) do 
+                  i.fas.fa-pencil-alt
+                li = link_to dairy, method: :delete do 
+                  i.fas.fa-trash-alt
+              li = link_to dairy do 
+                i.fas.fa-chevron-right

@@ -1,23 +1,8 @@
-.container.disp-p  
-  h1 日記一覧
-  = link_to '新規登録', new_dairy_path, class: 'btn btn-primary'
+#fh5co-blog 
+  .container
+    row.animate-box.fadeInUp.animated-fast
+      .col-md-8.col-md-offset-2.text-center.fh5co-heading 
+        h2 Blog 
 
-  .mb-3 
-  table.table.table-hover 
-    thead.thead-default 
-      tr 
-        th = Dairy.human_attribute_name(:title)
-        th 
-        th = Dairy.human_attribute_name(:created_at)
-        th 
+      = render 'dairies/dairy_list', locals: { dairy: @dairies }
 
-    tbody 
-      - @dairies.each do |dairy|
-        tr 
-        - if dairy.published?
-          td = link_to dairy.title, dairy
-          - if Favorite.exists?(user: current_user, dairy_id: dairy.id)
-            td = link_to 'お気に入り削除', dairy_favorites_path(dairy), method: :delete, class: 'btn btn-outline-secondary'
-          - else 
-            td = link_to 'お気に入り登録', dairy_favorites_path(dairy), method: :post, class: 'btn btn-outline-secondary'
-          td = dairy.created_at 
