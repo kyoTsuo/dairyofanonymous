@@ -33,4 +33,10 @@ input {
   text-align: left;
 }
 
+.account-delete {
+  display: block;
+  padding-top: 1.5rem;
+  text-align: right;
+}
+
 /*# sourceMappingURL=custom.css.map */
