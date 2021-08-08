@@ -21,6 +21,9 @@
               li.header-link 
                 = link_to user_fav_path(current_user) do 
                   span.fas.fa-heart
+              li.header-link 
+                = link_to edit_user_path(current_user) do 
+                  span.fas.fa-cog 
               li.header-link
                 = link_to logout_path, method: :delete do 
                   span.fas.fa-sign-out-alt
