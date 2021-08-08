@@ -15,11 +15,9 @@
         = f.label :content
         span.input-need ※必須
         = f.text_area :content, rows: 10, class: 'form-control', id: 'dairy_content'
-      .form-check 
-
-      .form-check 
 
       ul.stuff
-        li = f.submit "下書き", class: 'btn', publised: false, drafted: true 
-        li = f.submit "非公開投稿", class: 'btn btn-not-published ml-2', published: false, drafted: false 
-        li = f.submit "公開投稿", class: 'btn btn-primary', published: true, drafted: false 
+        li = link_to "下書き一覧", dairies_draft_path(@dairies), class: 'btn'
+        li = f.submit "下書き保存", class: 'btn', name: 'drafted'
+        li = f.submit "非公開投稿", class: 'btn btn-not-published ml-2', name: 'unpublished' 
+        li = f.submit "公開投稿", class: 'btn btn-primary', name: 'published'
