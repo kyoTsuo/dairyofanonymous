@@ -1,6 +1,8 @@
-.row.align-content-center.vh-100.px-5
-  h1 ユーザーの編集
-
-  .nav.justfy-content-end 
-
-  = render partial: 'form', locals: { user: @user }
+#fh5co-portfolio 
+  .container 
+    h1 ユーザー編集
+    .row 
+      .col-md-8.col-md-offset-2
+        = render partial: 'form', locals: { user: @user }
+        .account-delete 
+          = link_to 'アカウント削除', @user, method: :delete, data: { confirm: "ユーザーを削除します。よろしいですか？" }
