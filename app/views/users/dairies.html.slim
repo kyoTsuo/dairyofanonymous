@@ -8,7 +8,7 @@
           - unless dairy.drafted?
             .col-md-8.col-md-offset-2 
               .fh5co-blog.animate-box.fadeInUp.animated-fast 
-                .blog-text 
+                .blog-text id = "dairy-#{dairy.id}"
                   span.posted_on = dairy.created_at 
                   h3 = dairy.title 
                   p = dairy.content 
@@ -22,7 +22,7 @@
                     - if dairy.user_id == current_user.id then 
                       li = link_to edit_dairy_path(dairy) do 
                         i.fas.fa-pencil-alt
-                      li = link_to dairy, method: :delete do 
+                      li = link_to dairy, method: :delete, remote: true, data: { confirm: "日記を削除します。よろしいですか？" }, class: 'dairy-delete' do 
                         i.fas.fa-trash-alt
                     li = link_to dairy do 
                       i.fas.fa-chevron-right
