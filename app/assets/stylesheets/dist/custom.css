@@ -37,6 +37,18 @@ input {
   position: fixed;
 }
 
+.draft-content {
+  font-size: 14px;
+}
+
+.draft-content a {
+  color: black;
+}
+
+.draft-content a:hover {
+  color: #DD356E;
+}
+
 .account-delete {
   display: block;
   padding-top: 1.5rem;

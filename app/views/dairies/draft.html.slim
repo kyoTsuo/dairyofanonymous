@@ -5,7 +5,7 @@
         - if dairy.drafted?
           .col-md-8.col-md-offset-2 
             .fh5co-team.aminate-box.fadeInUp.animated-fast 
-              span.text-mute = dairy.created_at 
+              span.text-mute = dairy.created_at.strftime("%Y年 %-m月 %-d日 %k:%-S")
               p = dairy.title 
-              blockquote 
-                p = dairy.content 
+              blockquote.draft-content 
+                = link_to "#{dairy.content}", edit_dairy_path(dairy)
