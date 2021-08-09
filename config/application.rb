@@ -17,6 +17,8 @@ module Dairyofanonymous
         helper_specs: false, # ヘルパーファイル用のスペックを作成するかどうか
         routing_specs: false # config/routes.rb 用のスペックファイルを作成するかどうか　シンプルならば false で構わない
     end
+
+    config.time_zone = 'Tokyo'
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
