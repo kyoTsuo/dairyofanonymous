@@ -7,5 +7,5 @@
             .fh5co-team.aminate-box.fadeInUp.animated-fast 
               span.text-mute = dairy.created_at 
               p = dairy.title 
-              blockquote 
-                p = dairy.content 
+              blockquote.draft-content 
+                = link_to "#{dairy.content}", edit_dairy_path(dairy)
