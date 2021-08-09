@@ -9,7 +9,7 @@
             .col-md-8.col-md-offset-2 
               .fh5co-blog.animate-box.fadeInUp.animated-fast 
                 .blog-text id = "dairy-#{dairy.id}"
-                  span.posted_on = dairy.created_at 
+                  span.posted_on = dairy.created_at.strftime("%Y年 %-m月 %-d日 %R")
                   h3 = dairy.title 
                   p = dairy.content 
                   ul.stuff
