@@ -4,7 +4,7 @@
       .row 
         .col-xs-2 
           #fh5co-logo 
-            | Dairy
+            | Diary
 
         .col-xs-10.text-right.menu-1
           ul 
@@ -12,21 +12,27 @@
               li.header-link 
                 = link_to new_dairy_path do 
                   span.fas.fa-pencil-alt
+                  span.nav-name  投稿
               li.header-link
                 = link_to home_path do 
                   span.fas.fa-globe
+                  span.nav-name  公開
               li.header-link
                 = link_to user_dairies_path(current_user) do 
                   span.fas.fa-book
+                  span.nav-name  個人
               li.header-link 
                 = link_to user_fav_path(current_user) do 
                   span.fas.fa-heart
+                  span.nav-name  お気に入り
               li.header-link 
                 = link_to edit_user_path(current_user) do 
                   span.fas.fa-cog 
+                  span.nav-name  設定
               li.header-link
                 = link_to logout_path, method: :delete do 
                   span.fas.fa-sign-out-alt
+                  span.nav-name  ログアウト
             - else
               li.header-link
                 = link_to 'ログイン', login_path
