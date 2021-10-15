@@ -1,40 +1,42 @@
-.fh5co-nav.navbar-fixed-top role="navigation"
-  .top-menu 
-    .container 
-      .row 
-        .col-xs-2 
-          #fh5co-logo 
-            | Diary
+- unless @current_path
+  .fh5co-nav.navbar-fixed-top role="navigation"
+    .top-menu 
+      .container 
+        .row 
+          .col-xs-2 
+            #fh5co-logo 
+              = link_to 'Diary', root_path 
 
-        .col-xs-10.text-right.menu-1
-          ul 
-            - if current_user
-              li.header-link 
-                = link_to new_dairy_path do 
-                  span.fas.fa-pencil-alt
-                  span.nav-name  投稿
-              li.header-link
-                = link_to home_path do 
-                  span.fas.fa-globe
-                  span.nav-name  公開
-              li.header-link
-                = link_to user_dairies_path(current_user) do 
-                  span.fas.fa-book
-                  span.nav-name  個人
-              li.header-link 
-                = link_to user_fav_path(current_user) do 
-                  span.fas.fa-heart
-                  span.nav-name  お気に入り
-              li.header-link 
-                = link_to edit_user_path(current_user) do 
-                  span.fas.fa-cog 
-                  span.nav-name  設定
-              li.header-link
-                = link_to logout_path, method: :delete do 
-                  span.fas.fa-sign-out-alt
-                  span.nav-name  ログアウト
-            - else
-              li.header-link
-                = link_to 'ログイン', login_path
-              li.header-link
-                = link_to '新規登録', new_user_path
+          .col-xs-10.text-right.menu-1
+            ul 
+              - if current_user
+                li.header-link 
+                  = link_to new_dairy_path do 
+                    span.fas.fa-pencil-alt
+                    span.nav-name  投稿
+                li.header-link
+                  = link_to root_path do 
+                    span.fas.fa-globe
+                    span.nav-name  公開
+                li.header-link
+                  = link_to user_dairies_path(current_user) do 
+                    span.fas.fa-book
+                    span.nav-name  個人
+                li.header-link 
+                  = link_to user_fav_path(current_user) do 
+                    span.fas.fa-heart
+                    span.nav-name  お気に入り
+                li.header-link 
+                  = link_to edit_user_path(current_user) do 
+                    span.fas.fa-cog 
+                    span.nav-name  設定
+                li.header-link
+                  = link_to logout_path, method: :delete do 
+                    span.fas.fa-sign-out-alt
+                    span.nav-name  ログアウト
+              - else
+                li.header-link
+                  = link_to 'ログイン', login_path
+                li.header-link
+                  = link_to '新規登録', new_user_path
+  #fh5co-wireframe
