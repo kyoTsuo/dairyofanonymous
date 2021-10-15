@@ -20,6 +20,10 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: 'ログアウトしました。'
   end
 
+  def home 
+    @current_path = request.path
+  end
+
   private
 
   def session_params
