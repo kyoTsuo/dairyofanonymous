@@ -392,6 +392,8 @@ h1, h2, h3, h4, h5, h6, figure {
 	.display-tc {
 		display: table-cell!important;
 		vertical-align: middle;
+		width: 100%;
+		margin: 0 auto;
 		h1, h2 {
 			margin: 0;
 			padding: 0;

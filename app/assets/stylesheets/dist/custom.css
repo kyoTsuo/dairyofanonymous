@@ -59,4 +59,13 @@ span.nav-name {
   font-size: 14px;
 }
 
+.fh5co-nav a {
+  color: black;
+}
+
+.fh5co-nav a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=custom.css.map */
