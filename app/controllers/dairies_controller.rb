@@ -33,7 +33,7 @@ class DairiesController < ApplicationController
     end
 
     if @dairy.update(dairy_params)
-      redirect_to home_url, notice: comment
+      redirect_to root_url, notice: comment
     else
       render :edit
     end
@@ -57,7 +57,7 @@ class DairiesController < ApplicationController
     end
 
     if @dairy.save
-      redirect_to home_url, notice: comment
+      redirect_to root_url, notice: comment
     else
       render :new
     end
